@@ -1,38 +1,18 @@
-from flask import Flask
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def page_index():
-    return "Main page"
 
+    page_content = """
+    <h1>Look, it is my page</h1>
+    <p>Pages is so much, but it is my page </p>
+    <p>Frontend is my very like friend</p>
+    """
 
-@app.route("/user/<uid>")
-def profile(uid):
-    print(uid)
-    print(type(uid))
-    return " "
-
-
-@app.route("/profile/<uid>/")
-def page_profile(uid):
-    return f"<h1>Page profile user {uid}<h1>"
-
-
-@app.route("/items/<uid>/")
-def page_items(uid):
-    return f"<h2>Page item {uid}<h2>"
-
-
-@app.route("/feed/")
-def page_feed():
-    return "Feed user"
-
-
-@app.route("/message/")
-def page_message():
-    return "Message user"
+    return page_content
 
 
 app.run()
